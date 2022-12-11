@@ -20,9 +20,9 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="username" :value="__('Username')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+                <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required
                     autofocus />
             </div>
 
@@ -34,7 +34,7 @@
                     autocomplete="current-password" />
             </div>
 
-            <div class="flex items-center justify-center mt-4 bg-red-500 text-center">
+            <div class="flex items-center justify-center mt-4 text-center">
                 <x-button class="ml-3 btn-login text-bold">
                     {{ __('Masuk') }}
                 </x-button>
@@ -44,16 +44,19 @@
 </x-auth-layout>
 
 <style type="text/css">
-    .title{
+    .title {
         font-weight: bold;
         font-size: 2.5rem;
     }
 
-    .min-h-screen{
-        background-image: url('{{ asset('img/bg_login.jpg') }}');;
+    .min-h-screen {
+        background-image: url('{{ asset('img/bg_login.jpg') }}');
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    .btn-login{
+    .btn-login {
         background-color: rgb(185 28 28);
         font-weight: bold;
         width: 150px !important;

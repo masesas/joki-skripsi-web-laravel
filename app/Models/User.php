@@ -17,7 +17,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     use HasFactory;
     use HasRoles;
     use Notifiable;
-    use SoftDeletes;
+    //use SoftDeletes;
     use HasHashedMediaTrait;
     use UserPresenter;
 
@@ -30,9 +30,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     ];
 
     protected $dates = [
-        'deleted_at',
-        'date_of_birth',
-        'email_verified_at',
+
     ];
 
     /**
@@ -43,30 +41,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function providers()
-    {
-        return $this->hasMany('App\Models\UserProvider');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function profile()
-    {
-        return $this->hasOne('App\Models\Userprofile');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function userprofile()
-    {
-        return $this->hasOne('App\Models\Userprofile');
-    }
 
     /**
      * Get the list of users related to the current User.

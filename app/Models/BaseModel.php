@@ -12,7 +12,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BaseModel extends Model implements HasMedia {
-    use SoftDeletes;
+    //use SoftDeletes;
     use HasHashedMediaTrait;
 
     protected $guarded = [
@@ -23,7 +23,7 @@ class BaseModel extends Model implements HasMedia {
     ];
 
     protected $dates = [
-        'deleted_at',
+        //'deleted_at',
         'published_at',
     ];
 

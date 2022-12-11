@@ -60,7 +60,7 @@
                     <div class="fs-2 fw-semibold">
                         <div class="row">
                             <div class="col-md-10">
-                                <i class="fa fa-users" aria-hidden="true"></i> Daftar Peminjam
+                                <i class="fa fa-users" aria-hidden="true"></i> Daftar Bahan
                             </div>
                             <div class="col-md-2 d-flex flex-row-reverse align-items-center">
                                 <h4>0</h4>
@@ -85,7 +85,7 @@
                     <div class="fs-2 fw-semibold">
                         <div class="row">
                             <div class="col-md-10">
-                                <i class="fas fa-tools"></i> Alat Pecah
+                                <i class="fas fa-tools"></i> Daftar Peminjam
                             </div>
                             <div class="col-md-2 d-flex flex-row-reverse align-items-center">
                                 <h4>0</h4>
@@ -115,7 +115,7 @@
                     <div class="fs-2 fw-semibold">
                         <div class="row">
                             <div class="col-md-10">
-                                <i class="fa-solid fa-calendar-days"></i> Jadwal
+                                <i class="fa-solid fa-calendar-days"></i> Alat Pecah
                             </div>
                             <div class="col-md-2 d-flex flex-row-reverse align-items-center">
                                 <h4>0</h4>
@@ -135,7 +135,28 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="empty-card">
+            <div class="card mb-4 card-bg pull-left">
+                <div class="card-body">
+                    <div class="fs-2 fw-semibold">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <i class="fa-solid fa-calendar-days"></i> Jadwal
+                            </div>
+                            <div class="col-md-2 d-flex flex-row-reverse align-items-center">
+                                <h4>0</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer px-3 py-2">
+                    <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center"
+                        href="#"><span class="small fw-semibold"><i class="fa-solid fa-eye"></i>
+                            Lihat</span>
+                        <svg class="icon">
+                            <use xlink:href="/fonts/free.svg#cil-chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

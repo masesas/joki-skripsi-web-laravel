@@ -86,10 +86,7 @@
                         <tr>
                             <th>{{ __('labels.backend.users.fields.confirmed') }}</th>
                             <td>
-                                {!! $user->confirmed_label !!}
-                                @if ($user->email_verified_at == null)
-                                <a href="{{route('backend.users.emailConfirmationResend', $user->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="Send Confirmation Email"><i class="fas fa-envelope"></i> Send Confirmation Reminder</a>
-                                @endif
+
                             </td>
                         </tr>
                         <tr>
@@ -141,9 +138,7 @@
                 <a href="{{route('backend.users.unblock', $user)}}" class="btn btn-info mt-1" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.unblock')}}" data-confirm="Are you sure?"><i class="fas fa-check"></i> Unblock</a>
                 @endif
                 <a href="{{route('backend.users.destroy', $user)}}" class="btn btn-danger mt-1" data-method="DELETE" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.delete')}}" data-confirm="Are you sure?"><i class="fas fa-trash-alt"></i> Delete</a>
-                @if ($user->email_verified_at == null)
-                <a href="{{route('backend.users.emailConfirmationResend', $user->id)}}" class="btn btn-primary mt-1" data-toggle="tooltip" title="Send Confirmation Email"><i class="fas fa-envelope"></i> Email Confirmation</a>
-                @endif
+                
             </div>
             <!--/col-->
 

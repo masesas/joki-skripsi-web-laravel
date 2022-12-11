@@ -148,7 +148,7 @@ if (! function_exists('fielf_required')) {
 if (! function_exists('setting')) {
     function setting($key, $default = null)
     {
-        if (is_null($key)) {
+        /* if (is_null($key)) {
             return new App\Models\Setting();
         }
 
@@ -158,7 +158,7 @@ if (! function_exists('setting')) {
 
         $value = App\Models\Setting::get($key);
 
-        return is_null($value) ? value($default) : $value;
+        return is_null($value) ? value($default) : $value; */
     }
 }
 

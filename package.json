@@ -32,7 +32,8 @@
         "sass-loader": "^13.2.0",
         "simplebar": "^5.3.9",
         "tailwindcss": "^3.2.4",
-        "webpack": "^5.75.0"
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
     },
     "dependencies": {
         "-": "^0.0.1",

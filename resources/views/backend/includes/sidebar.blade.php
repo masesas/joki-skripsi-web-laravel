@@ -1,6 +1,7 @@
 <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-    <div class="d-md-flex sidebar-user justify-content-center align-items-center">
-        <h4><i class="fas fa-user-circle me-2"></i> Admin</h4>
+    <div
+        class="d-md-flex justify-content-center align-items-center sidebar-user">
+        <h4><i class="fas fa-user-circle me-2"></i> {{  explode(' ',Auth::user()->nama)[0]  }}</h4>
     </div>
 
     {!! $admin_sidebar->asUl(
@@ -12,8 +13,9 @@
 </div>
 
 <style type="text/css">
-    .sidebar-user{
+    .sidebar-user {
         height: 150px;
-        background-image: url('{{ asset('img/bg_login.jpg') }}');
+        background-image: url('{{ Auth::user()->hasRole('admin') ? asset('img/bg_login.jpg') : asset('img/bg_login_user.jpg') }}');
     }
+
 </style>

@@ -30,15 +30,15 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required'],
         ]);
 
-        $email = $request->email;
+        $username = $request->username;
         $password = $request->password;
         $remember = $request->remember_me;
 
-        if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 1], $remember)) {
+        if (Auth::attempt(['username' => $username, 'password' => $password], $remember)) {
             $request->session()->regenerate();
 
             event(new UserLoginSuccess($request, auth()->user()));
@@ -47,8 +47,8 @@ class AuthenticatedSessionController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'username' => 'The provided credentials do not match our records.',
+        ])->onlyInput('username');
     }
 
     /**
@@ -65,6 +65,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

@@ -6,6 +6,7 @@ use App\Authorizable;
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
 use App\Models\Role;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -234,7 +235,7 @@ class RolesController extends Controller
 
         $$module_name_singular = Role::findOrFail($id);
 
-        $user_roles = auth()->user()->roles()->pluck('id');
+        $user_roles = Auth::user()->roles()->pluck('id');
         $role_users = $$module_name_singular->users;
 
         if ($id == 1) {

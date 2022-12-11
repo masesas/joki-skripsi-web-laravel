@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Auth\UpdateProfileLoginData',
         ],
         'App\Events\Backend\UserCreated' => [
-            'App\Listeners\Backend\UserCreated\UserCreatedProfileCreate',
+            //'App\Listeners\Backend\UserCreated\UserCreatedProfileCreate',
             'App\Listeners\Backend\UserCreated\UserCreatedNotifySuperUser',
         ],
         'App\Events\Backend\UserUpdated' => [
