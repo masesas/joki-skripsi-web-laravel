@@ -15,7 +15,7 @@
 <style type="text/css">
     .sidebar-user {
         height: 150px;
-        background-image: url('{{ Auth::user()->hasRole('admin') ? asset('img/bg_login.jpg') : asset('img/bg_login_user.jpg') }}');
+        background-image: url('{{ Auth::user()->status == "laboran" ? asset('img/bg_login.jpg') : asset('img/bg_login_user.jpg') }}');
     }
 
 </style>

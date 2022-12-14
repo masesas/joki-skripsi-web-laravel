@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('merk');
             $table->string('lokasi_penyimpanan');
             $table->integer('jumlah_stock');
-            $table->integer('jumlah_dipinjam');
-            $table->integer('jumlah_tersedia');
+            $table->integer('jumlah_dipinjam')->default(0);
+            $table->integer('jumlah_pecah')->default(0);
             $table->timestamps();
         });
     }

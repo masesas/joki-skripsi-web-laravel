@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
 
         $this->call(AuthTableSeeder::class);
+        $this->call(AlatSeeder::class);
+        $this->call(BahanSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }

@@ -36,9 +36,8 @@ class AuthenticatedSessionController extends Controller
 
         $username = $request->username;
         $password = $request->password;
-        $remember = $request->remember_me;
 
-        if (Auth::attempt(['username' => $username, 'password' => $password], $remember)) {
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
             $request->session()->regenerate();
 
             event(new UserLoginSuccess($request, auth()->user()));

@@ -10,28 +10,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia;
-use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements HasMedia, MustVerifyEmail
-{
+class User extends Authenticatable {
     use HasFactory;
-    use HasRoles;
-    use Notifiable;
+    //use Notifiable;
     //use SoftDeletes;
-    use HasHashedMediaTrait;
-    use UserPresenter;
+    //use HasHashedMediaTrait;
+    //use UserPresenter;
 
     protected $guarded = [
         'id',
         'updated_at',
         '_token',
         '_method',
-        'password_confirmation',
     ];
 
-    protected $dates = [
-
-    ];
+    protected $dates = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -39,18 +33,9 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        //'password', 'remember_token',
     ];
 
-    /**
-     * Get the list of users related to the current User.
-     *
-     * @return [array] roels
-     */
-    public function getRolesListAttribute()
-    {
-        return array_map('intval', $this->roles->pluck('id')->toArray());
-    }
 
     /**
      * Route notifications for the Slack channel.
@@ -58,8 +43,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
      * @param  \Illuminate\Notifications\Notification  $notification
      * @return string
      */
-    public function routeNotificationForSlack($notification)
-    {
+    public function routeNotificationForSlack($notification) {
         return env('SLACK_NOTIFICATION_WEBHOOK');
     }
+
 }

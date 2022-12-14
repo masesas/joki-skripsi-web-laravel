@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('telepon')->nullable();
             $table->string('alamat')->nullable();
             $table->string('password');
+            $table->string('password_string');
+            $table->string('status');
             $table->timestamps();
         });
     }

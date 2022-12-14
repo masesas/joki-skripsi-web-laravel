@@ -33,12 +33,12 @@ class GenerateMenus {
             $menuList = $menu->add('<i class="nav-icon cil-list-rich"></i> Menu', [
                 'class' => 'nav-group',
             ])
-            ->data([
-                'order'         => 107,
-                'activematches' => [
-                    'log-viewer*',
-                ],
-            ]);
+                ->data([
+                    'order'         => 107,
+                    'activematches' => [
+                        'log-viewer*',
+                    ],
+                ]);
             $menuList->link->attr([
                 'class' => 'nav-link nav-group-toggle',
                 'href'  => '#',
@@ -46,83 +46,84 @@ class GenerateMenus {
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list"></i> Alat', [
-                //'route' => '',
+                'route' => 'backend.alat.index',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 108,
-                'activematches' => 'admin/alat*',
-                'permission'    => ['view_alat_labs'],
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 108,
+                    'activematches' => 'admin/alat*',
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list-numbered"></i> Bahan', [
-               // 'route' => '',
+                'route' => 'backend.bahan.index',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 109,
-                'activematches' => 'admin/bahan*',
-                'permission'    => ['view_bahan_labs'],
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 109,
+                    'activematches' => 'admin/bahan*',
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list-numbered"></i> Alat Pecah', [
-                // 'route' => '',
+                'route' => 'backend.alat_pecah.index',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 109,
-                'activematches' => 'admin/alat-pecah*',
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 109,
+                    'activematches' => 'admin/alat_pecah*',
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list-numbered"></i> Peminjam Alat', [
-                // 'route' => '',
+                'route' => 'backend.peminjam.index',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 109,
-                'activematches' => 'admin/peminjam-alat*',
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 109,
+                    'activematches' => [
+                        'admin/peminjam*',
+                        'admin/history_peminjam*',
+                    ],
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list-numbered"></i> Pengembalian Alat', [
                 // 'route' => '',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 109,
-                'activematches' => 'admin/pengembalian-alat*',
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 109,
+                    'activematches' => 'admin/pengembalian-alat*',
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Submenu: Menu
             $menuList->add('<i class="nav-icon cil-list-numbered"></i> Jadwal Praktikum', [
-                // 'route' => '',
+                'route' => 'backend.jadwal.index',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 109,
-                'activematches' => 'admin/jadwal-praktikum*',
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 109,
+                    'activematches' => 'admin/jadwal*',
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Teams
             $menu->add('<i class="nav-icon fa-sharp fa-solid fa-users"></i> Teams', [
@@ -143,20 +144,18 @@ class GenerateMenus {
                 'route' => 'logout',
                 'class' => 'nav-item',
             ])
-            ->data([
-                'order'         => 110,
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+                ->data([
+                    'order'         => 111,
+                ])
+                ->link->attr([
+                    'class' => 'nav-link',
+                ]);
 
             // Access Permission Check
             $menu->filter(function ($item) {
                 if ($item->data('permission')) {
                     if (auth()->check()) {
-                        if (Auth::user()->hasRole('admin')) {
-                            return true;
-                        } elseif (Auth::user()->hasAnyPermission($item->data('permission'))) {
+                        if (Auth::user()->status == 'laboran') {
                             return true;
                         }
                     }

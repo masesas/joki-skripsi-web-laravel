@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class BaseModel extends Model implements HasMedia {
-    //use SoftDeletes;
-    use HasHashedMediaTrait;
+class BaseModel extends Model  {
 
     protected $guarded = [
         'id',

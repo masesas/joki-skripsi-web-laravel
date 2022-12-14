@@ -156,7 +156,7 @@
                             <div class="col-12 col-sm-5">
                                 <div class="card card-accent-primary">
                                     <div class="card-header">
-                                        @lang('Permissions')
+                                        
                                     </div>
                                     <div class="card-body">
                                         @if ($permissions->count())

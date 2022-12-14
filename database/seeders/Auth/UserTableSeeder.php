@@ -3,6 +3,7 @@
 namespace Database\Seeders\Auth;
 
 use App\Events\Backend\UserCreated;
+use App\Models\PasswordHash;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -32,25 +33,27 @@ class UserTableSeeder extends Seeder
                 'nama' => 'Laboran',
                 'username' => 'admin',
                 'password' => Hash::make('admin'),
+                'password_string' => 'admin',
                 'telepon' => $faker->phoneNumber,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'status' => 'laboran',
             ],
             [
                 'nim' => '10002',
                 'nama' => 'Mahasiswa',
                 'username' => 'user',
                 'password' => Hash::make('user'),
+                'password_string' => 'user',
                 'telepon' => $faker->phoneNumber,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'status' => 'mahasiswa'
             ],
         ];
 
         foreach ($users as $user_data) {
-            $user = User::create($user_data);
-
-            event(new UserCreated($user));
+            User::create($user_data);
         }
 
         Schema::enableForeignKeyConstraints();

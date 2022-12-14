@@ -19,9 +19,8 @@ return new class extends Migration
             $table->string('rumus_kimia');
             $table->string('fasa');
             $table->string('golongan');
-            $table->integer('jumlah_stock');
-            $table->integer('jumlah_dipinjam');
-            $table->integer('jumlah_tersedia');
+            $table->integer('jumlah_stock')->default(0);
+            $table->integer('jumlah_dipinjam')->default(0);
             $table->timestamps();
         });
     }

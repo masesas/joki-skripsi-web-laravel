@@ -26,6 +26,7 @@
     "/fonts/CoreUI-Icons-Free.woff2": "/fonts/CoreUI-Icons-Free.woff2",
     "/fonts/flag.svg": "/fonts/flag.svg",
     "/fonts/free.svg": "/fonts/free.svg",
+    "/js/jquery-clock-timepicker.min.js": "/js/jquery-clock-timepicker.min.js",
     "/css/backend.css": "/css/backend.css",
     "/js/backend.js": "/js/backend.js"
 }

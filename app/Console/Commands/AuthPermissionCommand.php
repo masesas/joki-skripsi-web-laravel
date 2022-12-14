@@ -41,22 +41,6 @@ class AuthPermissionCommand extends Command
     {
         $permissions = $this->generatePermissions();
 
-        // check if its remove
-        if ($this->option('remove')) {
-            // remove permission
-            if (Permission::where('name', 'LIKE', '%'.$this->getNameArgument())->delete()) {
-                $this->warn('Permissions '.implode(', ', $permissions).' deleted.');
-            } else {
-                $this->warn('No permissions for '.$this->getNameArgument().' found!');
-            }
-        } else {
-            // create permissions
-            foreach ($permissions as $permission) {
-                Permission::firstOrCreate(['name' => $permission]);
-            }
-
-            $this->info('Permissions '.implode(', ', $permissions).' created.');
-        }
     }
 
     private function generatePermissions()

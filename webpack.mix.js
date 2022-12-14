@@ -6,8 +6,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ]
-    );
+    ]);
 
 
 /**
@@ -20,7 +19,8 @@ mix.js('resources/js/app.js', 'public/js')
 mix.copy("node_modules/jquery/dist/jquery.min.js", "public/js/jquery.min.js")
     .copy("node_modules/@fortawesome/fontawesome-free/webfonts/*", "public/webfonts")
     .copy('node_modules/@coreui/icons/fonts', 'public/fonts')
-    .copy('node_modules/@coreui/icons/sprites', 'public/fonts');
+    .copy('node_modules/@coreui/icons/sprites', 'public/fonts')
+    .copy("node_modules/jquery-clock-timepicker/jquery-clock-timepicker.min.js", "public/js/jquery-clock-timepicker.min.js");
 
 
 /**
@@ -34,16 +34,15 @@ mix.js('resources/js/frontend.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ]
-    );
+    ]);
 
 
 /**
-*
-* Backend
-*
-* -----------------------------------------------------------------------------
-*/
+ *
+ * Backend
+ *
+ * -----------------------------------------------------------------------------
+ */
 // Build Backend SASS
 mix.sass("resources/sass/backend.scss", "public/css/backend-theme.css");
 

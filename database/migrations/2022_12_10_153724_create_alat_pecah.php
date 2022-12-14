@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('alat_pecah', function (Blueprint $table) {
             $table->id();
-            $table->string('nim_peminjam');
-            $table->string('alat_id');
-            $table->integer('jumlah');
+            $table->integer('user_id');
+            $table->integer('alat_id');
+            $table->integer('jumlah')->default(0);
             $table->timestamps();
         });
     }
